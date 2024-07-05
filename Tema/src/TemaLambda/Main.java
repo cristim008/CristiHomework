@@ -43,6 +43,7 @@ public class Main {
         }
         strings.sort(stringComparator);
 
+
         System.out.println("Sorted strings based on their length = " + strings);
 
         //Create a Function<String, Integer> using a lambda expression that takes a string and returns its length.
