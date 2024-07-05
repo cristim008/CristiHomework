@@ -6,11 +6,13 @@ import java.util.function.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
         //Create a Runnable that prints "Hello, World!" using a lambda expression.
         Runnable helloRunnable = () -> System.out.println("Hello Word");
 
         Thread thread = new Thread(helloRunnable);
         thread.start();
+
 
         // Create a Comparator<String> using a lambda expression that compares strings based on their length.
         Scanner scanner = new Scanner(System.in);
