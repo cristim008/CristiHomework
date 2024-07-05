@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import javax.xml.transform.Source;
+import java.util.*;
+import java.util.function.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -15,13 +14,12 @@ public class Main {
 
         // Create a Comparator<String> using a lambda expression that compares strings based on their length.
         Scanner scanner = new Scanner(System.in);
-        Scanner scanner1 = new Scanner(System.in);
 
         System.out.print("Please enter first string :");
 
         String string1 = scanner.nextLine();
         System.out.print("Please enter second string :");
-        String string2 = scanner1.nextLine();
+        String string2 = scanner.nextLine();
 
         List<String> strings = new ArrayList<>();
         strings.add(string1);
@@ -42,6 +40,57 @@ public class Main {
         }
         strings.sort(stringComparator);
         System.out.println("Sorted strings based on their length = " + strings);
+
+        //Create a Function<String, Integer> using a lambda expression that takes a string and returns its length.
+
+        Function<String, Integer> stringLength = a -> a == null || a.isEmpty() ? 0 : a.length();
+        System.out.println("The string is : " + string1);
+        System.out.println("The string length is : " + stringLength.apply(string1));
+        System.out.println("The string lentgh is : " + stringLength.apply(null));
+
+        //Create a BiPredicate<String, String> using a lambda expression that tests whether the first string is longer than the second string.
+
+        BiPredicate<String, String> longerString = (a, b) ->
+                a.length() > b.length();
+        System.out.println("Is first string longer than  the second string ? " + "Response : " +longerString.test(string1,string2) );
+
+
+        //Create a UnaryOperator<Integer> using a lambda expression that squares an integer.
+        Scanner scanner2=new Scanner(System.in);
+        System.out.print("Enter a number : ");
+        int number= scanner2.nextInt();
+        UnaryOperator<Integer>  squareOfTheNumber=s-> s*s;
+        System.out.println("The square of the number is :  " + squareOfTheNumber.apply(number));
+
+        //Create a BinaryOperator<Integer> using a lambda expression that adds two integers.
+
+        Scanner scanner3 = new Scanner(System.in);
+        System.out.print("First number : ");
+        int number2 = scanner3.nextInt();
+        System.out.print("Second number : ");
+        int number3 = scanner3.nextInt();
+        BinaryOperator<Integer> sum = (a, b) -> a + b;
+        //BinaryOperator<Integer> sum = Integer::sum;
+        System.out.println("Sum of the numbers  : "+ sum.apply(number2, number3));
+
+        //Given a list of strings, use a lambda expression to sort the list in reverse alphabetical order.
+
+        List<String> stringList=new ArrayList<>();
+        stringList.add("seven");
+        stringList.add("american");
+        stringList.add("night");
+
+        Collections.sort(stringList,(s1,s2)->s2.compareTo(s1));
+
+        System.out.println(stringList);
+
+
+
+
     }
+
 }
+
+
+
 
