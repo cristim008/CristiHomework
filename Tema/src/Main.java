@@ -54,14 +54,14 @@ public class Main {
 
         BiPredicate<String, String> longerString = (a, b) ->
                 a.length() > b.length();
-        System.out.println("Is first string longer than  the second string ? " + "Response : " +longerString.test(string1,string2) );
+        System.out.println("Is first string longer than  the second string ? " + "Response : " + longerString.test(string1, string2));
 
 
         //Create a UnaryOperator<Integer> using a lambda expression that squares an integer.
-        Scanner scanner2=new Scanner(System.in);
+        Scanner scanner2 = new Scanner(System.in);
         System.out.print("Enter a number : ");
-        int number= scanner2.nextInt();
-        UnaryOperator<Integer>  squareOfTheNumber=s-> s*s;
+        int number = scanner2.nextInt();
+        UnaryOperator<Integer> squareOfTheNumber = s -> s * s;
         System.out.println("The square of the number is :  " + squareOfTheNumber.apply(number));
 
         //Create a BinaryOperator<Integer> using a lambda expression that adds two integers.
@@ -73,21 +73,18 @@ public class Main {
         int number3 = scanner3.nextInt();
         BinaryOperator<Integer> sum = (a, b) -> a + b;
         //BinaryOperator<Integer> sum = Integer::sum;
-        System.out.println("Sum of the numbers  : "+ sum.apply(number2, number3));
+        System.out.println("Sum of the numbers  : " + sum.apply(number2, number3));
 
         //Given a list of strings, use a lambda expression to sort the list in reverse alphabetical order.
 
-        List<String> stringList=new ArrayList<>();
+        List<String> stringList = new ArrayList<>();
         stringList.add("seven");
         stringList.add("american");
         stringList.add("night");
 
-        Collections.sort(stringList,(s1,s2)->s2.compareTo(s1));
+        Collections.sort(stringList, (s1, s2) -> s2.compareTo(s1));
 
         System.out.println(stringList);
-
-
-
 
     }
 
